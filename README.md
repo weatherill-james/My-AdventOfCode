@@ -1,15 +1,16 @@
-# ☃️ Advent Of Code... In Python 🎄
+# ☃️ Advent Of Code... In Python & C++ 🎄
 **Welcome to my Advent of Code repo!**
 
-If I am doing Advent of Code in Python, then this is where you will find the code
-for it!
+When I am doing Advent of Code, this is where you will find the code for it!
+
+I previously had two repos (one for each language), but have merged them for ease.
 
 Merry Christmas!!! 🎄🎅❄️
 
 ## 🎄 Progress Tracker
 
-| Day | 2023 | 2024 | 2025 |
-|-----|------|------|------|
+| Day |  2023   |  2024   |  2025   |
+|-----|---------|---------|---------|
 | 1   | ✅ - ✅ | ☑️ - ☑️ | ✅ - ✅ |
 | 2   | ✅ - ✅ | ☑️ - ☑️ | ✅ - ✅ |
 | 3   | ✅ - ✅ | ☑️ - ☑️ | ✅ - ✅ |
