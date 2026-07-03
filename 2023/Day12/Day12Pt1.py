@@ -1,6 +1,6 @@
-#! /opt/homebrew/bin/python3
-
 from time import time
+from copy import deepcopy as copy
+from itertools import product, repeat
 
 startTime = time()
 
@@ -21,54 +21,38 @@ for i in range(len(fixedList)):
 
 ########################################
 
-def generateCombinations(symbolList, index=0):
-    resultList = []
+def findBrokenLayout(inputList):
+    tempList = []
 
-    def backtrack():
-        resultList.append(symbolList.copy())
+    brokenCount = 0
 
-    if index == len(symbolList):
-        backtrack()
-        return resultList
+    for i, char in enumerate(inputList):
+        if char == "#":
+            brokenCount += 1
+        elif char == ".":
+            if brokenCount != 0:
+                tempList.append(brokenCount)
+                brokenCount = 0
+        if char == "#" and i == len(inputList)-1:
+            tempList.append(brokenCount)
 
-    if symbolList[index] == "?":
-        for value in [".", "#"]:
-            symbolList[index] = value
-            resultList.extend(generateCombinations(symbolList, index + 1))
-            symbolList[index] = "?"
-    else:
-        resultList.extend(generateCombinations(symbolList, index + 1))
-
-    return resultList
-
-def matchesContraints(constraint, combination):
-    lengthOfChain = 0
-    theLayout = []
-    for i in range(len(combination)):
-        if combination[i] == "#":
-            lengthOfChain += 1
-
-        elif combination[i] == ".":
-            if lengthOfChain > 0:
-                theLayout.append(lengthOfChain)
-            lengthOfChain = 0
-
-        if combination[i] == "#" and i == len(combination)-1:
-            theLayout.append(lengthOfChain)
-
-    if theLayout == constraint:
-        return True
-    else:
-        return False
+    return tempList
 
 ans = 0
 
-for item in fixedList:
+for fixedItem in fixedList:
+    numberOfQuestionMarks = fixedItem[0].count("?")
 
-    combinations = generateCombinations(item[0])
+    for combination in product([".", "#"], repeat=numberOfQuestionMarks):
+        copyList = copy(fixedItem[0])
+        counter = 0
 
-    for thing in combinations:
-        if matchesContraints(item[1], thing):
+        for j, char in enumerate(copyList):
+            if char == "?":
+                copyList[j] = combination[counter]
+                counter += 1
+
+        if findBrokenLayout(copyList) == fixedItem[1]:
             ans += 1
 
 print(ans)

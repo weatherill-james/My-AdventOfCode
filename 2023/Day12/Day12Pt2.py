@@ -25,7 +25,7 @@ for i in range(len(fixedList)):
 
 print(fixedList[0])
 
-def generateCombinations(symbolList, index=0):
+def generateCombinations(symbolList, index = 0):
     resultList = []
 
     def backtrack():
@@ -45,7 +45,7 @@ def generateCombinations(symbolList, index=0):
 
     return resultList
 
-def matchesContraints(constraint, combination):
+def matchesConstraints(constraint, combination):
     lengthOfChain = 0
     theLayout = []
     for i in range(len(combination)):
@@ -72,7 +72,7 @@ for item in fixedList:
     combinations = generateCombinations(item[0])
 
     for thing in combinations:
-        if matchesContraints(item[1], thing):
+        if matchesConstraints(item[1], thing):
             ans += 1
 
 print(ans)
