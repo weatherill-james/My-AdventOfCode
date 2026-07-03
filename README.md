@@ -7,7 +7,7 @@ I previously had two repos (one for each language), but have merged them for eas
 
 Merry Christmas!!! 🎄🎅❄️
 
-**Key:$\hspace{0.3cm}$☑️ $\Rightarrow$ C++,$\hspace{0.3cm}$✅ $\Rightarrow$ Python**
+**Key:$\phantom{=}$☑️$\phantom{::}\Rightarrow\phantom{::}$C++,$\phantom{=}$✅$\phantom{::}\Rightarrow\phantom{::}$Python**
 
 ## 🎄 Progress Tracker
 
