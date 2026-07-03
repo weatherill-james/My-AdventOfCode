@@ -1,0 +1,5 @@
+Magic Missile: Mana = 53, Damage = 4, HitPointsINC = 0, ArmorINC = 0, ManaINC = 0, Duration = 1
+Drain: Mana = 73, Damage = 2, HitPointsINC = 2, ArmorINC = 0, ManaINC = 0, Duration = 1
+Shield: Mana = 113, Damage = 0, HitPointsINC = 0, ArmorINC = 7, ManaINC = 0, Duration = 6
+Poison: Mana = 173, Damage = 3, HitPointsINC = 0, ArmorINC = 0, ManaINC = 0, Duration = 6
+Recharge: Mana = 229, Damage = 0, HitPointsINC = 0, ArmorINC = 0, ManaINC = 101, Duration = 5
