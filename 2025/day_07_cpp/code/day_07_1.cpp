@@ -6,6 +6,16 @@
 
 namespace fs = std::filesystem;
 
+using timepoint = std::chrono::time_point<std::chrono::high_resolution_clock>;
+
+timepoint timer() {
+    return std::chrono::high_resolution_clock::now();
+}
+
+double time_taken(timepoint start_time, timepoint finish_time) {
+    return std::chrono::duration<double, std::milli>(finish_time - start_time).count() / 1000;
+}
+
 std::vector<std::string> read_lines(fs::path temp_file_path) {
     std::ifstream temp_file(temp_file_path);
 
@@ -37,18 +47,16 @@ std::vector<std::string> read_lines(fs::path temp_file_path) {
 }
 
 int main(){
+    timepoint start_time = timer();
+
+    ////////////////////////////////////////
+
     fs::path dir_parent(".."), dir_assets("assets"), file_input1("input1.txt"), file_input2("input2.txt");
 
     // fs::path file_path = dir_parent / dir_assets / file_input1;
     fs::path file_path = dir_parent / dir_assets / file_input2;
 
     std::vector<std::string> lines_vec = read_lines(file_path);
-
-    std::cout << std::endl;
-    for (int i = 0; i < lines_vec.size(); i += 1) {
-        std::cout << lines_vec[i] << std::endl;
-    };
-    std::cout << std::endl;
 
     int split_counter = 0;
 
@@ -65,7 +73,13 @@ int main(){
         };
     };
 
-    std::cout << std::endl << "There are: " << split_counter << " splits!" << std::endl << std::endl;
+    std::cout << std::endl << "There are: " << split_counter << " splits!" << std::endl;
+
+    ////////////////////////////////////////
+
+    timepoint finish_time = timer();
+
+    std::cout << std::endl << "The code took: " << time_taken(start_time, finish_time) << " seconds to run!" << std::endl << std::endl;
 
     return 0;
 }
